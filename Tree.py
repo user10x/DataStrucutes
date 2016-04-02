@@ -29,8 +29,11 @@ def printTree(tree,order):
         printTree(tree.left,order)
         printTree(tree.right,order)
         print tree.cargo,
-
-
+    if order=="inorder":
+        if tree==None:return
+        printTree(tree.left,order)
+        print tree.cargo,
+        printTree(tree.right,order)
 
 
 
@@ -44,6 +47,8 @@ if __name__ == '__main__':
     printTree(tree,"pre")
     print
     printTree(tree,"post")
+    print
+    printTree(tree,"inorder")
 
 
 
