@@ -1,0 +1,18 @@
+class Solution(object):
+    def merge(self, intervals):
+        """
+        :type intervals: List[List[int]]
+        :rtype: List[List[int]]
+        """
+
+        merged = [intervals[0]]
+        count = 0
+
+        for interval in intervals:
+            if interval[0] <= merged[count][1]:
+                merged[count][1] = interval[1]
+            else:
+                merged.append(interval)
+                count = count + 1
+
+        return merged
