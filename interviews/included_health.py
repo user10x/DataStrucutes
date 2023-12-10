@@ -4,10 +4,10 @@
 # # time is the number of seconds from the unix epoch
 # record(event_name: string, time: int)
 
-# # query aggregates events by the specified resolution, returning an array of event counts from start to end.
-# # start and end are specified in same unit as the resolution (eg resolution=hour means that start is the number of hours from unix epoch)
-# # start and end are inclusive, exclusive respectively
-# query(event_name: string, resolution: hour | day, start: int, end: int) -> []int
+# # query aggregates events by the specified resolution, returning an array of event counts from start to end. #
+# start and end are specified in same unit as the resolution (eg resolution=hour means that start is the number of
+# hours from unix epoch) # start and end are inclusive, exclusive respectively query(event_name: string, resolution:
+# hour | day, start: int, end: int) -> []int
 
 # # examples
 # record("/api/v1/user", 0)
@@ -85,7 +85,7 @@ class EventCounterTrie:
         hour = time // 3600
         day = hour // 24
 
-        self.event_hour[event_name] =
+        self.event_hour[event_name] += 1
         self.event_day[(event_name, day)] += 1
 
     def query(self, event_name: str, event_boundry: str, start: int, end: int) -> list:
