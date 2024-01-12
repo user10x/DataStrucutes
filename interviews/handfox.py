@@ -54,12 +54,12 @@ class Graph:
 
 g = Graph()
 
-g.add_edge(Node("A"), Node("B"))
+g.add_edge(Node("START"), Node("B"))
 g.add_edge(Node("A"), Node("B"))
 g.add_edge(Node("A"), Node("C"))
 g.add_edge(Node("B"), Node("C"))
 g.add_edge(Node("C"), Node("A"))
 g.add_edge(Node("C"), Node("D"))
-g.add_edge(Node("D"), Node("D"))
+g.add_edge(Node("D"), Node("END"))
 
 g.process_nodes()
