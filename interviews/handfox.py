@@ -39,27 +39,46 @@ class Graph:
     def add_edge(self, source: Node, destination: Node):
         self.graph[source].append(destination)
 
+    def print_graph(self):
+        for node, children in self.graph.items():
+            child_list =[ child.get_name() for child in children]
+            print(node.get_name(),"=>", child_list)
+
     def visit_node(self, node) -> str:
+        print("visiting node", node.get_name())
+        if not node :
+            return ""
         if node.get_name() == "END":
             return node.get_name()
         for child in self.graph[node]:
-            self.result + self.visit_node(child)
+            self.visit_node(child)
+
+        return ""
+
 
     def process_nodes(self) -> str:
         res = ""
-        for k, v in self.graph.items():
-            if k.get_name() == "START":
-                res = self.visit_node(k)
+        for node in self.graph:
+            if node.get_name() == "START":
+                res = self.visit_node(node)
+                print(res)
 
 
 g = Graph()
 
-g.add_edge(Node("START"), Node("B"))
-g.add_edge(Node("A"), Node("B"))
-g.add_edge(Node("A"), Node("C"))
-g.add_edge(Node("B"), Node("C"))
-g.add_edge(Node("C"), Node("A"))
-g.add_edge(Node("C"), Node("D"))
-g.add_edge(Node("D"), Node("END"))
+a = Node("A")
+aa = Node("A")
+b = Node("B")
+c = Node("C")
+d = Node("D")
 
-g.process_nodes()
+g.add_edge(Node("START"), a)
+g.add_edge(a, b)
+g.add_edge(a, c)
+g.add_edge(b, d)
+g.add_edge(c, d)
+g.add_edge(aa, d)
+g.add_edge(d, Node("END"))
+
+g.print_graph()
+# g.process_nodes()
