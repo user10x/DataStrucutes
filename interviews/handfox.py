@@ -66,19 +66,21 @@ class Graph:
 
 g = Graph()
 
+start = Node("START")
 a = Node("A")
 aa = Node("A")
 b = Node("B")
 c = Node("C")
 d = Node("D")
+end = Node("END")
 
-g.add_edge(Node("START"), a)
+g.add_edge(start, a)
 g.add_edge(a, b)
 g.add_edge(a, c)
 g.add_edge(b, d)
 g.add_edge(c, d)
 g.add_edge(aa, d)
-g.add_edge(d, Node("END"))
+g.add_edge(d,end)
 
 g.print_graph()
 # g.process_nodes()
