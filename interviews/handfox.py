@@ -41,12 +41,12 @@ class Graph:
 
     def print_graph(self):
         for node, children in self.graph.items():
-            child_list =[ child.get_name() for child in children]
-            print(node.get_name(),"=>", child_list)
+            child_list = [child.get_name() for child in children]
+            print(node.get_name(), "=>", child_list)
 
     def visit_node(self, node) -> str:
         print("visiting node", node.get_name())
-        if not node :
+        if not node:
             return ""
         if node.get_name() == "END":
             return node.get_name()
@@ -55,13 +55,13 @@ class Graph:
 
         return ""
 
-
     def process_nodes(self) -> str:
         res = ""
         for node in self.graph:
             if node.get_name() == "START":
                 res = self.visit_node(node)
                 print(res)
+        return res
 
 
 g = Graph()
@@ -80,7 +80,7 @@ g.add_edge(a, c)
 g.add_edge(b, d)
 g.add_edge(c, d)
 g.add_edge(aa, d)
-g.add_edge(d,end)
+g.add_edge(d, end)
 
 g.print_graph()
 # g.process_nodes()
